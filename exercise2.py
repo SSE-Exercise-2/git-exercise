@@ -6,6 +6,12 @@ class Point2D:
     def __init__(self, x: float, y: float) -> None:
         self._coordinates = Vector([x, y])
 
+    def __isub__(self, other: Vector) -> Point2D:
+        assert len(other._coordinates) == 2
+        x_new = self._coordinates[0] - other[0]
+        y_new = self._coordinates[1] - other[1]
+        return Point2D(x_new, y_new)
+
     @property
     def x(self) -> float:
         return self._coordinates[0]
