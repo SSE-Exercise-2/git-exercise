@@ -20,6 +20,9 @@ class Point2D:
     def y(self) -> float:
         return self._coordinates[1]
 
+    def __iadd__(self, other: Vector) -> Point2D:
+        assert len(other._coordinates) == 2
+        return Point2D(self._coordinates[0] + other[0], self._coordinates[1] + other[1])
 
 def test_point_construction() -> None:
     point = Point2D(1.0, 42.0)
